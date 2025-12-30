@@ -3,109 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专题：海南全岛封关——中国开放新纪元</title>
+    <title>专题：海南全岛封关——打造高水平开放新高地</title>
     <style>
-        :root { --main-blue: #0056b3; --accent-gold: #ffcc00; --bg-gray: #f4f7f9; }
-        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; margin: 0; background: var(--bg-gray); }
-        .container { max-width: 1000px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        /* 统一字体为宋体，标题加粗 */
+        body { 
+            font-family: "SimSun", "STSong", serif; 
+            background-color: #fcfcfc; 
+            margin: 0; 
+            color: #333; 
+        }
+        h1, h2, h3, h4 { font-weight: bold; color: #c00; margin: 10px 0; }
         
-        /* 头部设计 */
-        header { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=1200&q=80'); 
-                 background-size: cover; color: #fff; text-align: center; padding: 100px 20px; }
-        header h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        header p { font-size: 1.2rem; opacity: 0.9; }
+        /* 整体色调：红色与黄色 */
+        :root {
+            --china-red: #ce0000;
+            --china-yellow: #ffde00;
+            --bg-cream: #fff9e6;
+        }
 
-        /* 正文样式 */
-        article { padding: 40px; }
-        .lead { font-size: 1.25rem; font-weight: bold; color: var(--main-blue); border-left: 5px solid var(--main-blue); padding-left: 15px; margin-bottom: 30px; }
-        h2 { border-bottom: 2px solid var(--main-blue); display: inline-block; padding-bottom: 5px; margin-top: 40px; }
-        
-        /* 交互组件：计算器 */
-        .interactive-box { background: #eef2f7; border: 1px solid #ddd; padding: 25px; border-radius: 8px; margin: 30px 0; }
-        .calc-input { padding: 10px; width: 150px; margin-right: 10px; }
-        .btn { background: var(--main-blue); color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
-        
-        /* 图表与图片占位 */
-        .img-placeholder { background: #eee; padding: 20px; text-align: center; border: 2px dashed #ccc; margin: 20px 0; border-radius: 5px; }
-        
+        /* 页眉设计 */
+        header {
+            background-color: var(--china-red);
+            color: var(--china-yellow);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--china-yellow);
+        }
+        header h1 { color: var(--china-yellow); font-size: 42px; margin: 0; }
+        header p { font-size: 18px; margin-top: 10px; }
+
+        /* 报纸版面布局 */
+        .newspaper-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* 主栏与侧边栏 */
+            gap: 20px;
+            padding: 0 15px;
+        }
+
+        /* 块状切分样式 */
+        .news-section {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* 头条区 */
+        .headline-top {
+            border-top: 4px solid var(--china-red);
+            text-align: center;
+        }
+        .headline-top h2 { font-size: 32px; color: #000; }
+        .source-link { font-size: 14px; color: #666; text-decoration: none; }
+        .source-link:hover { color: var(--china-red); }
+
+        /* 内容切分：左右结构 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* 侧边栏小块 */
+        .sidebar-box {
+            background-color: var(--bg-cream);
+            border: 1px solid var(--china-yellow);
+            padding: 15px;
+        }
+
+        /* 交互按钮 */
+        .btn-calc {
+            background-color: var(--china-red);
+            color: var(--china-yellow);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: "SimSun";
+            font-weight: bold;
+        }
+
         /* 底部 */
-        footer { background: #333; color: #ccc; text-align: center; padding: 30px; font-size: 0.9rem; }
-        .source-list { text-align: left; max-width: 600px; margin: 20px auto; font-size: 0.85rem; }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        /* 图片响应式 */
+        img { max-width: 1000%; height: auto; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>潮起南溟：海南全岛封关正式启动</h1>
-        <p>迈向最高水平开放形态的“关键一跃”</p>
-    </header>
+<header>
+    <h1>海南全岛封关：中国开放新篇章</h1>
+    <p>—— 2025年全岛封关运作专题报道 ——</p>
+</header>
 
-    <article>
-        <p class="lead">2025年12月18日，海南自由贸易港正式实施全岛封关运作。这意味着在3.3万平方公里的土地上，一个全新的“境内关外”试验场正式开启。</p>
+<div class="newspaper-container">
+    
+    <main>
+        <section class="news-section headline-top">
+            <h2>海南全岛封关运作准备工作全面就绪</h2>
+            <p><strong>[ 核心摘要 ]</strong> 海南自由贸易港建设进入新阶段。根据中央部署，2025年12月底前全岛封关运作各项准备工作已全面达标。</p>
+            <p><a class="source-link" href="http://www.gov.cn/lianbo/2023-03/29/content_5748981.htm" target="_blank">内容来源：中华人民共和国中央人民政府网 (点击查看原件)</a></p>
+        </section>
 
-        <h2>一、核心解读：何为“全岛封关”？</h2>
-        <p>封关运作并非“封岛”，而是通过制度集成创新，实现<b>“一线放开、二线管住、岛内自由”</b>。通过这种模式，海南将深度融入全球供应链。</p>
-        
-        
-
-        <p>简单来说，“一线”指的是海南与境外。境外货物进入海南，免征关税；“二线”则是海南与内地。货物从海南进入内地，需按规定办理进口手续。</p>
-
-        <h2>二、红利分析：政策如何惠及你我？</h2>
-        <ul>
-            <li><b>零关税：</b>封关后，免税商品税目比例由21%大幅跃升至74%。</li>
-            <li><b>30%增值免税：</b>在海南加工增值超过30%的货物，进入内地免征进口关税。</li>
-            <li><b>双15%税收：</b>个人所得税、企业所得税最高仅15%。</li>
-        </ul>
-
-        <div class="interactive-box">
-            <h3>🧮 交互：加工增值免税计算器</h3>
-            <p>输入你的货物在海南加工后的各项数据，看看能省多少钱：</p>
-            输入成本(万元): <input type="number" id="cost" class="calc-input" placeholder="100"> 
-            增值金额(万元): <input type="number" id="vadd" class="calc-input" placeholder="35">
-            <button class="btn" onclick="calcTax()">立即试算</button>
-            <p id="result" style="margin-top:15px; font-weight:bold; color:green;"></p>
+        <div class="grid-2">
+            <section class="news-section">
+                <h3>[ 深度视角 ] “二线管住”管什么？</h3>
+                <p>全岛封关后，海南与内地之间将设立“二线”口岸，主要对税收政策差异货物进行监管。这对普通旅客有何影响？</p>
+                <p><a class="source-link" href="https://news.xhby.net/index/202304/t20230404_7891395.shtml" target="_blank">参考：新华网相关报道</a></p>
+            </section>
+            <section class="news-section">
+                <h3>[ 数据看板 ] 政策红利释放</h3>
+                <p>自贸港建设以来，离岛免税销售额突破1500亿元，实际使用外资增长显著。</p>
+                
+            </section>
         </div>
 
-        <h2>三、时间线：封关之路的里程碑</h2>
-        
-        
-        <p>从2020年《总体方案》发布，到2025年正式挂牌运作，海南用五年时间完成了世界级自由贸易港的软硬件搭建。12月18日当天，海口美兰机场、三亚凤凰机场等“二线口岸”监管设施悉数启用。</p>
+        <section class="news-section">
+            <h3>[ 视听海南 ] 封关口岸现场直击</h3>
+            <div style="background:#000; color:#fff; height:300px; display:flex; align-items:center; justify-content:center;">
+                <p>此处加载海南卫视封关报道视频流</p>
+            </div>
+        </section>
+    </main>
 
-        <h2>四、视点：专家与企业怎么看？</h2>
-        <blockquote>
-            “这是中国主动拥抱经济全球化的坚定宣示。” —— 某经济研究院首席专家
-        </blockquote>
-        <p>封关首周，海南新增外资备案企业同比增长2.3倍，市场热度空前。</p>
-    </article>
-
-    <footer>
-        <p>© 2025 网络新闻编辑实践作业 | 选题：海南封关专题报道</p>
-        <div class="source-list">
-            <b>参考资料与来源：</b><br>
-            1. 新华社：2025年12月18日《海南自由贸易港正式启动全岛封关运作》<br>
-            2. 海南日报：2025年12月20日《封关后首周观察：数据里的自贸港活力》<br>
-            3. 界面新闻：专题报道《解码海南封关：六大核心议题探析》
+    <aside>
+        <div class="news-section sidebar-box">
+            <h4>最新公告</h4>
+            <ul style="padding-left: 20px; font-size: 14px;">
+                <li><a href="http://www.customs.gov.cn/" target="_blank">海关总署：海南“一线”口岸正式启用</a></li>
+                <li><a href="http://hnstp.hainan.gov.cn/" target="_blank">省深改办：营商环境持续优化</a></li>
+                <li><a href="https://www.fmprc.gov.cn/" target="_blank">外交部：向世界分享海南机遇</a></li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="news-section sidebar-box">
+            <h4>💡 进口关税试算</h4>
+            <p style="font-size: 12px;">输入商品价值，对比封关前后成本差异。</p>
+            <input type="number" id="price" placeholder="金额(元)" style="width: 100%; margin-bottom:10px;">
+            <button class="btn-calc" onclick="calculate()">开始计算</button>
+            <p id="result" style="font-size: 13px; margin-top:10px; color: #c00;"></p>
+        </div>
+
+        <div class="news-section" style="font-size: 12px;">
+            <h4>关于本版</h4>
+            <p>本页面为《网络新闻编辑实践》结课作业项目。代码基于 MIT 协议开源。</p>
+            <p>编辑：[你的姓名]</p>
+            <p>日期：2025年12月30日</p>
+        </div>
+    </aside>
+
 </div>
 
-<script>
-    function calcTax() {
-        const cost = parseFloat(document.getElementById('cost').value);
-        const vadd = parseFloat(document.getElementById('vadd').value);
-        const rate = (vadd / (cost + vadd)) * 100;
-        const resultP = document.getElementById('result');
-        
-        if (isNaN(rate)) {
-            resultP.innerText = "请输入有效数字。";
-            return;
-        }
+<footer>
+    <p>主办：[XX大学] 新闻传播学院 | 技术支持：GitHub Pages</p>
+    <p>内容引用均已注明来源，版权归原作者所有</p>
+</footer>
 
-        if (rate >= 30) {
-            resultP.innerHTML = `✅ 增值率：${rate.toFixed(2)}% (符合政策)<br>结论：该批货物销往内地免征关税！`;
+<script>
+    function calculate() {
+        const val = document.getElementById('price').value;
+        if(val > 0) {
+            const save = (val * 0.13).toFixed(2); // 假设综合税率为13%
+            document.getElementById('result').innerHTML = "封关运作后，该商品在岛内预计可节省关税及进口税：￥" + save;
         } else {
-            resultP.innerHTML = `❌ 增值率：${rate.toFixed(2)}% (未达标)<br>结论：需增值至30%以上方可享受免关税政策。`;
+            alert("请输入有效金额");
         }
     }
 </script>
