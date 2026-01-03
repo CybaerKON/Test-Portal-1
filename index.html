@@ -143,23 +143,6 @@
             margin-top: 6px;
         }
 
-        /* Video.js 自适应容器 */
-        .video-container {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            margin: 12px 0;
-            position: relative;
-            background: #000;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .video-js {
-            width: 100% !important;
-            height: 100% !important;
-            background: #000;
-        }
-
         footer {
             background: #333;
             color: white;
@@ -182,6 +165,46 @@
                 padding: 15px;
                 gap: 16px;
             }
+        }
+
+        /* 视频封面样式 */
+        #video-trigger {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        #video-trigger img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #video-trigger::after {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+            z-index: 2;
+        }
+
+        #video-trigger::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
         }
     </style>
 </head>
@@ -220,7 +243,7 @@
             </div>
         </div>
 
-        <!-- 模块2：经济影响（带视频） -->
+        <!-- 模块2：经济影响（带弹窗视频） -->
         <div class="panel">
             <div class="panel-header">经济影响</div>
             <div class="panel-body">
@@ -236,19 +259,10 @@
                     <div class="news-source">来源：中国发展改革报社</div>
                 </a>
 
-                <!-- 替换为真实视频播放器 -->
+                <!-- 视频封面 + 弹窗触发 -->
                 <div class="news-link-block" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
-                    <div class="video-container">
-                        <video
-                            id="cctv-video"
-                            class="video-js vjs-default-skin vjs-big-play-centered"
-                            controls
-                            preload="auto"
-                            data-setup='{"fluid": true, "playbackRates": [0.5, 1, 1.5, 2]}'
-                        >
-                            <source src="https://hls.cntv.lxdns.com/asp/hls/main/0303000a/3/default/ac4832468e9e4a6eb13c5b413f8121a7/main.m3u8?maxbr=2048" type="application/x-mpegURL">
-                            <p class="vjs-no-js">您的浏览器不支持视频播放。</p>
-                        </video>
+                    <div id="video-trigger">
+                        <img src="https://p1.img.cctvpic.com/fmspic/2025/11/01/ac4832468e9e4a6eb13c5b413f8121a7-1.jpg" alt="离岛免税政策升级">
                     </div>
                     <div class="news-title">离岛免税政策升级：47类商品+岛民不限次购</div>
                     <div class="news-excerpt">
@@ -300,14 +314,76 @@
         <span class="date">更新时间：2025年12月30日</span>
     </footer>
 
-    <!-- 引入 Video.js JS（含 HLS 支持） -->
+    <!-- 视频弹窗 Modal -->
+    <div id="video-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center;">
+        <div style="background: white; border-radius: 8px; max-width: 90vw; max-height: 90vh; width: 800px; overflow: hidden; position: relative;">
+            <button id="close-modal" style="position: absolute; top: 10px; right: 15px; background: rgba(0,0,0,0.5); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 10;">×</button>
+            <div id="modal-video-container" style="width: 100%; aspect-ratio: 16/9; background: #000;"></div>
+        </div>
+    </div>
+
+    <!-- 引入 Video.js JS -->
     <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
-    <!-- 注意：现代 Video.js (v7+) 已内置 HLS 支持（通过 http-streaming），无需额外插件 -->
     <script>
-        // 可选：监听错误，提示用户
-        const player = videojs('cctv-video');
-        player.on('error', function() {
-            console.error('视频加载失败，请尝试访问央视网原页面观看。');
+        const modal = document.getElementById('video-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const videoTrigger = document.getElementById('video-trigger');
+        const modalVideoContainer = document.getElementById('modal-video-container');
+
+        let player = null;
+
+        videoTrigger.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            if (player) return;
+
+            const videoEl = document.createElement('video');
+            videoEl.className = 'video-js vjs-default-skin vjs-big-play-centered';
+            videoEl.controls = true;
+            videoEl.preload = 'auto';
+
+            const sourceEl = document.createElement('source');
+            sourceEl.src = 'https://hls.cntv.lxdns.com/asp/hls/main/0303000a/3/default/ac4832468e9e4a6eb13c5b413f8121a7/main.m3u8?maxbr=2048';
+            sourceEl.type = 'application/x-mpegURL';
+
+            videoEl.appendChild(sourceEl);
+            modalVideoContainer.appendChild(videoEl);
+
+            player = videojs(videoEl, {
+                fluid: false,
+                responsive: true,
+                playbackRates: [0.5, 1, 1.5, 2]
+            }, function() {
+                // 尝试自动播放（可能被浏览器阻止）
+                this.play().catch(e => console.warn('Autoplay prevented:', e));
+            });
+
+            // 错误处理（可选）
+            player.on('error', function() {
+                alert('视频加载失败，请访问央视网原页面观看。\n\n即将跳转...');
+                window.open('https://news.cctv.com/2025/11/01/ARTIRRBk6xDmQOPHMHcq0PYH251101.shtml', '_blank');
+                closeModal();
+            });
+        });
+
+        function closeModal() {
+            if (player) {
+                player.pause();
+                player.dispose();
+                player = null;
+            }
+            modalVideoContainer.innerHTML = '';
+            modal.style.display = 'none';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
         });
     </script>
 </body>
