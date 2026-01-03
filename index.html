@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>海南自由贸易港封关运作专题报道</title>
+    <!-- 引入 Video.js CSS -->
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -141,27 +143,21 @@
             margin-top: 6px;
         }
 
-        /* 视频占位样式 */
-        .video-placeholder {
+        /* Video.js 自适应容器 */
+        .video-container {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: #000;
-            border-radius: 4px;
             margin: 12px 0;
             position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .video-placeholder::before {
-            content: "▶";
-            font-size: 36px;
-            color: white;
-            text-shadow: 0 0 8px rgba(0,0,0,0.7);
+        .video-js {
+            width: 100% !important;
+            height: 100% !important;
+            background: #000;
         }
 
         footer {
@@ -224,7 +220,7 @@
             </div>
         </div>
 
-        <!-- 模块2：经济影响（带图） -->
+        <!-- 模块2：经济影响（带视频） -->
         <div class="panel">
             <div class="panel-header">经济影响</div>
             <div class="panel-body">
@@ -240,16 +236,26 @@
                     <div class="news-source">来源：中国发展改革报社</div>
                 </a>
 
-                <!-- 更新：央视网离岛免税政策新闻 -->
-                <a href="https://news.cctv.com/2025/11/01/ARTIRRBk6xDmQOPHMHcq0PYH251101.shtml" class="news-link-block" target="_blank">
-                    <div class="video-placeholder" onclick="window.open('https://news.cctv.com/2025/11/01/ARTIRRBk6xDmQOPHMHcq0PYH251101.shtml', '_blank'); return false;">
+                <!-- 替换为真实视频播放器 -->
+                <div class="news-link-block" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                    <div class="video-container">
+                        <video
+                            id="cctv-video"
+                            class="video-js vjs-default-skin vjs-big-play-centered"
+                            controls
+                            preload="auto"
+                            data-setup='{"fluid": true, "playbackRates": [0.5, 1, 1.5, 2]}'
+                        >
+                            <source src="https://hls.cntv.lxdns.com/asp/hls/main/0303000a/3/default/ac4832468e9e4a6eb13c5b413f8121a7/main.m3u8?maxbr=2048" type="application/x-mpegURL">
+                            <p class="vjs-no-js">您的浏览器不支持视频播放。</p>
+                        </video>
                     </div>
                     <div class="news-title">离岛免税政策升级：47类商品+岛民不限次购</div>
                     <div class="news-excerpt">
                         自11月1日起，离岛免税商品扩至47类，新增吸尘器、无人机等；岛内居民凭年度离岛记录可不限次“即购即提”15类商品（如化妆品），全年额度10万元。服装、咖啡等国产商品首次纳入免税销售。
                     </div>
                     <div class="news-source">来源：央视网</div>
-                </a>
+                </div>
             </div>
         </div>
 
@@ -270,7 +276,7 @@
             </div>
         </div>
 
-        <!-- 模块4：国际视角（带图） -->
+        <!-- 模块4：国际视角 -->
         <div class="panel">
             <div class="panel-header">国际视角</div>
             <div class="panel-body">
@@ -293,5 +299,16 @@
         <p>© 2025 中国新闻网 | 海南自由贸易港封关运作专题报道</p>
         <span class="date">更新时间：2025年12月30日</span>
     </footer>
+
+    <!-- 引入 Video.js JS（含 HLS 支持） -->
+    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <!-- 注意：现代 Video.js (v7+) 已内置 HLS 支持（通过 http-streaming），无需额外插件 -->
+    <script>
+        // 可选：监听错误，提示用户
+        const player = videojs('cctv-video');
+        player.on('error', function() {
+            console.error('视频加载失败，请尝试访问央视网原页面观看。');
+        });
+    </script>
 </body>
 </html>
