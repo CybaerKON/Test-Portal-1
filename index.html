@@ -4,263 +4,144 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>海南自由贸易港封关运作专题报道</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            font-family: "SimSun", 宋体, serif;
-            background-color: #fff9e6; /* 淡黄背景 */
-            color: #333;
-            line-height: 1.6;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background: linear-gradient(135deg, #c00 0%, #f00 100%);
-            color: white;
-            text-align: center;
-            padding: 20px 10px;
-            flex-shrink: 0;
-            border-bottom: 5px solid #ffcc00;
-        }
-
-        header h1 {
-            font-size: clamp(24px, 6vw, 36px);
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            font-size: clamp(14px, 4vw, 18px);
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .container {
-            flex: 1; /* 占据中间所有可用空间 */
-            padding: 20px;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .highlight {
-            background-color: #fff2e6;
-            padding: 20px;
-            border-left: 4px solid #ff6600;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .highlight h3 {
-            color: #d40000;
-            margin-bottom: 12px;
-            font-size: clamp(18px, 5vw, 20px);
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .panel {
-            background: white;
-            border: 2px solid #d40000;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .panel:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .panel-header {
-            background: #d40000;
-            color: white;
-            padding: 14px;
-            font-weight: bold;
-            font-size: clamp(18px, 5vw, 22px);
-            text-align: center;
-        }
-
-        .panel-body {
-            padding: 18px;
-        }
-
-        .news-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #ccc;
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .news-title {
-            font-weight: bold;
-            color: #d40000;
-            margin-bottom: 8px;
-            font-size: clamp(16px, 4.5vw, 18px);
-        }
-
-        .news-excerpt {
-            margin-bottom: 10px;
-            text-indent: 2em;
-            font-size: clamp(14px, 4vw, 16px);
-        }
-
-        .news-source {
-            font-size: clamp(12px, 3.5vw, 14px);
-            color: #666;
-            text-align: right;
-        }
-
-        .news-link {
-            color: #d40000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .news-link:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 16px 10px;
-            font-size: clamp(12px, 3.5vw, 14px);
-            flex-shrink: 0; /* 防止被压缩 */
-        }
-
-        .date {
-            color: #ffcc00;
-            font-weight: bold;
-            margin-top: 6px;
-            display: block;
-        }
-
-        /* 小屏优化 */
-        @media (max-width: 480px) {
-            .panel-header {
-                font-size: 18px;
-                padding: 12px 8px;
-            }
-            .news-excerpt {
-                text-indent: 1.5em;
-            }
-        }
-    </style>
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
         <h1>海南自由贸易港封关运作专题报道</h1>
         <div class="subtitle">打造引领我国新时代对外开放的鲜明旗帜和重要开放门户</div>
     </header>
 
-    <div class="container">
-        <div class="highlight">
+    <div class="top-intro">
+        <section class="highlight">
             <h3>核心解读：什么是海南封关运作？</h3>
-            <p>“封关”不是“封闭”，而是指在海南全岛建设海关监管特殊区域，实施“一线放开、二线管住、岛内自由”的货物进出境管理制度。封关后，海南将成为“境内关外”的特殊经济区域，对大多数进口商品免征关税、进口环节增值税和消费税，同时实施更加自由便利的贸易投资政策。</p>
-            <p>根据《海南自由贸易港建设总体方案》，海南计划在2025年底前实现全岛封关运作，这标志着中国特色自由贸易港建设进入新阶段。</p>
-        </div>
+            <p>“封关”不是“封闭”，而是指在海南全岛建设海关监管特殊区域，实施“一线放开、二线管住、岛内自由”的货物进出境管理制度。海南已于2025年12月18日正式启动全岛封关运作。</p>
+        </section>
+    </div>
 
-        <div class="main-content">
-            <!-- 板块一：政策动态 -->
-            <div class="panel">
-                <div class="panel-header">政策动态</div>
-                <div class="panel-body">
-                    <div class="news-item">
-                        <div class="news-title">海南全岛封关准备工作全面启动</div>
-                        <div class="news-excerpt">海南省省长冯飞表示，海南正全力推进封关运作准备工作，确保2025年底前具备封关硬件条件、政策制度环境和实施能力。</div>
-                        <div class="news-source">来源：<a href="http://www.gov.cn/xinwen/2023-01/17/content_5669323.htm" class="news-link" target="_blank">中国政府网</a></div>
+    <main class="masonry-wrapper">
+        
+        <section class="panel">
+            <div class="panel-header">政策动态</div>
+            <div class="panel-body">
+                <a href="https://www.gov.cn/yaowen/liebiao/202507/content_7033500.htm" class="news-link-block" target="_blank">
+                    <div class="news-title">海南自贸港全岛封关于2025年12月18日正式启动</div>
+                    <div class="news-excerpt">国家发改委宣布，海南自贸港全岛封关运作定于2025年12月18日正式启动。此举具有重要象征意义，旨在向世界展示我国扩大高水平开放的决心。封关是指将全岛建成海关监管特殊区域，封关后人员往来无需额外办证，联系将更加便捷。</div>
+                    <span class="news-source">来源：新华社</span>
+                </a>
+                <a href="https://www.hinews.cn/page?n=2734925&m=1&s=1044" class="news-link-block" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/CybaerKON/Test-Portal-1@main/PictureSave/IMG_aff8043a6a6841f5a737ea71217daf63.png" alt="封关政策配套">
+                    <div class="news-title">海南自贸港封关政策及配套措施密集发布</div>
+                    <div class="news-excerpt">封关后，“零关税”覆盖目将由目前的1900个扩大至约6600个，覆盖率达74%。加工增值超30%免关税政策门槛进一步降低，申报项目由105项简化至33项。相关政策正密集出台，确保红利平稳落地，提振全球投资预期。</div>
+                    <span class="news-source">来源：海南日报</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">经济影响</div>
+            <div class="panel-body">
+                <a href="https://www.ndrc.gov.cn/wsdwhfz/202512/t20251224_1402603.html" class="news-link-block" target="_blank">
+                    <div class="dynamic-chart">
+                        <div class="chart-header">📈 自贸港建设成型起势关键指标</div>
+                        <div class="chart-item">
+                            <div class="chart-info"><span>新设外资企业年均增长</span><strong>43.7%</strong></div>
+                            <div class="chart-bar-bg"><div class="chart-bar-fill" data-width="43.7%"></div></div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-info"><span>货物贸易年均增长</span><strong>31.3%</strong></div>
+                            <div class="chart-bar-bg"><div class="chart-bar-fill" data-width="31.3%"></div></div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-info"><span>主导产业增加值占比</span><strong>67.2%</strong></div>
+                            <div class="chart-bar-bg"><div class="chart-bar-fill" data-width="67.2%"></div></div>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-info"><span>零关税商品税目覆盖率</span><strong>74%</strong></div>
+                            <div class="chart-bar-bg"><div class="chart-bar-fill" data-width="74%"></div></div>
+                        </div>
                     </div>
-                    <div class="news-item">
-                        <div class="news-title">海关总署支持海南自贸港建设28项措施</div>
-                        <div class="news-excerpt">海关总署出台《关于促进海南自由贸易港建设发展的若干措施》，在口岸建设、监管模式创新、通关便利化等方面给予支持。</div>
-                        <div class="news-source">来源：<a href="http://www.customs.gov.cn/customs/302249/2480148/5215853/index.html" class="news-link" target="_blank">海关总署官网</a></div>
+                    <div class="news-title">海南封关激活开放新势能</div>
+                    <div class="news-excerpt">全岛封关后，零关税商品覆盖率达74%，EF账户跨境资金超2000亿元。四大主导产业占GDP 67.2%，前三季度外资企业新增1513家，同比增长超40%。海南正成为全球要素“强磁场”。</div>
+                    <span class="news-source">来源：中国发展改革报社</span>
+                </a>
+                
+                <div class="video-news-container">
+                    <div class="video-trigger video-btn" data-video-url="https://hls.cntv.lxdns.com/asp/hls/main/0303000a/3/default/ac4832468e9e4a6eb13c5b413f8121a7/main.m3u8?maxbr=2048">
+                        <img src="https://p1.img.cctvpic.com/fmspic/2025/11/01/ac4832468e9e4a6eb13c5b413f8121a7-1.jpg" alt="免税升级">
                     </div>
+                    <div class="news-title">离岛免税政策升级：47类商品+岛民不限次购</div>
+                    <div class="news-excerpt">自11月1日起，离岛免税商品扩至47类，新增吸尘器、无人机等；岛内居民凭年度离岛记录可不限次“即购即提”15类商品（如化妆品），全年额度10万元。服装、咖啡等国产商品首次纳入免税销售。</div>
+                    <span class="news-source">来源：央视网</span>
                 </div>
             </div>
+        </section>
 
-            <!-- 板块二：经济影响 -->
-            <div class="panel">
-                <div class="panel-header">经济影响</div>
-                <div class="panel-body">
-                    <div class="news-item">
-                        <div class="news-title">封关运作将为海南带来万亿级投资机遇</div>
-                        <div class="news-excerpt">专家分析，封关运作后，海南将成为全球投资热土，预计到2025年，海南GDP将突破1万亿元，实际利用外资年均增长20%以上。</div>
-                        <div class="news-source">来源：<a href="http://www.xinhuanet.com/fortune/2023-04/12/c_1129512345.htm" class="news-link" target="_blank">新华网</a></div>
+        <section class="panel">
+            <div class="panel-header">民生关注</div>
+            <div class="panel-body">
+                <div class="video-news-container">
+                    <img src="https://cdn.jsdelivr.net/gh/CybaerKON/Test-Portal-1@main/PictureSave/1.jpg" alt="民生政策解读">
+                    <a href="https://news.qq.com/rain/a/20251228A01XNN00" class="news-link-block" target="_blank" style="border-bottom:none; margin-bottom:0;">
+                        <div class="news-title">封关如何影响你我生活？</div>
+                        <div class="news-excerpt">同济大学程名望教授指出，封关将带来全面性影响：进口消费品更便宜，但部分服务价格可能上行；新增岗位集中于跨境贸易、高端制造、文旅康养等领域；高端人才个税超15%部分免征，居住天数要求放宽至90天。</div>
+                        <span class="news-source">来源：海报新闻</span>
+                    </a>
+                </div>
+                
+                <a href="https://www.thepaper.cn/newsDetail_forward_32124112" class="news-link-block" target="_blank">
+                    <div class="news-title">海南自贸港封关在即，万余岗位揽全球人才</div>
+                    <div class="news-excerpt">第二届中国(海南)人才交流大会12月6日在海口开幕，337家用人单位提供 1万余个岗位，涵盖商业航天、热带农业等高精尖领域。海南推出"百万英才兴海南"行动，为封关运作提供人才支撑。</div>
+                    <span class="news-source">来源：澎湃新闻</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">国际视角</div>
+            <div class="panel-body">
+                <div class="chart-container">
+                    <div class="chart-title">📊 开放魅力关键指标</div>
+                    <div class="chart-row">
+                        <div class="chart-label"><span>外资增长</span> <strong>43.7%</strong></div>
+                        <div class="bar-bg"><div class="bar-fill" style="--target-width: 43.7%;"></div></div>
                     </div>
-                    <div class="news-item">
-                        <div class="news-title">离岛免税政策升级助力消费升级</div>
-                        <div class="news-excerpt">随着封关临近，海南离岛免税购物额度提升至每年每人10万元，免税商品种类增至45大类，带动旅游消费强劲复苏。</div>
-                        <div class="news-source">来源：<a href="http://www.mofcom.gov.cn/article/news/202302/20230203380211.shtml" class="news-link" target="_blank">商务部官网</a></div>
+                    <div class="chart-row">
+                        <div class="chart-label"><span>免税目覆盖</span> <strong>74%</strong></div>
+                        <div class="bar-bg"><div class="bar-fill" style="--target-width: 74%;"></div></div>
                     </div>
                 </div>
+                <a href="https://www.xinhuanet.com/20251217/78b47e9c074d49ed8661d5e2dfc289f6/c.html" class="news-link-block" target="_blank">
+                    <div class="news-title">国际商界共话海南封关：看好中国高水平开放新机遇</div>
+                    <div class="news-excerpt">塞尔维亚工商会等机构普遍认为，此举展示了中国开放潜力。摩根士丹利指出，封关后免税商品将增至6600余种。海南正成为全球资本共享中国机遇的关键“桥梁”。</div>
+                    <span class="news-source">来源：新华社</span>
+                </a>
+                <a href="https://world.gmw.cn/2025-12/20/content_38489085.htm" class="news-link-block" target="_blank">
+                    <div class="news-title">国际社会看好海南封关“红利”</div>
+                    <div class="news-excerpt">12月18日正式封关首日，“一线”享惠货物达3.6亿元。外媒聚焦海南74%的零关税覆盖率。西门子能源等外企已率先落地，海南正成为制度开放试验场。</div>
+                    <span class="news-source">来源：环球时报</span>
+                </a>
             </div>
+        </section>
 
-            <!-- 板块三：民生关注 -->
-            <div class="panel">
-                <div class="panel-header">民生关注</div>
-                <div class="panel-body">
-                    <div class="news-item">
-                        <div class="news-title">封关后海南居民生活将有哪些变化？</div>
-                        <div class="news-excerpt">专家解读：封关后，海南居民购买进口商品将更便宜便捷，就业机会增多，但需注意部分商品价格可能因政策调整而波动。</div>
-                        <div class="news-source">来源：<a href="http://www.hi.chinanews.com.cn/hnnew/2023-03-15/725638.html" class="news-link" target="_blank">中国新闻网海南频道</a></div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-title">海南加强人才引进应对封关需求</div>
-                        <div class="news-excerpt">海南省推出"百万人才进海南"行动计划，重点引进国际贸易、金融、法律等专业人才，为封关运作提供智力支持。</div>
-                        <div class="news-source">来源：<a href="http://hrss.hainan.gov.cn/hrss/0400/202302/8a8e8b8e8b8e4f8e8b8e8b8e8b8e8b8e.shtml" class="news-link" target="_blank">海南省人社厅</a></div>
-                    </div>
-                </div>
-            </div>
+    </main>
 
-            <!-- 板块四：国际视角 -->
-            <div class="panel">
-                <div class="panel-header">国际视角</div>
-                <div class="panel-body">
-                    <div class="news-item">
-                        <div class="news-title">国际机构看好海南自贸港发展前景</div>
-                        <div class="news-excerpt">世界银行报告指出，海南自贸港封关运作将为中国乃至亚太地区提供新的经济增长引擎，有望成为全球最高水平的开放形态之一。</div>
-                        <div class="news-source">来源：<a href="https://www.worldbank.org/zh/country/china/publication/hainan-free-trade-port-development-report" class="news-link" target="_blank">世界银行官网</a></div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-title">跨国企业加速布局海南市场</div>
-                        <div class="news-excerpt">包括特斯拉、壳牌、普华永道等在内的多家跨国企业已宣布在海南设立区域总部或运营中心，抢占自贸港政策红利。</div>
-                        <div class="news-source">来源：<a href="https://www.reuters.com/world/china/multinationals-rush-hainan-free-trade-port-ahead-2025-seal-2023-05-18/" class="news-link" target="_blank">路透社</a></div>
-                    </div>
-                </div>
-            </div>
+    <footer>
+        <p>2025-2026 ｜ 海南自由贸易港封关运作专题报道</p>
+        <span class="date">收集制作时间：2026年1月3日</span>
+        <div class="producer-info">制作人：22新闻2班 袁日鑫 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 学号：20221902172</div>
+    </footer>
+
+    <div id="video-modal">
+        <div class="modal-content">
+            <button id="close-modal">×</button>
+            <div id="modal-video-container"></div>
         </div>
     </div>
 
-    <footer>
-        <p>© 2025 中国新闻网 | 海南自由贸易港封关运作专题报道</p>
-        <span class="date">更新时间：2025年12月30日</span>
-    </footer>
+    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

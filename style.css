@@ -1,0 +1,285 @@
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --primary-red: #d40000;
+    --accent-gold: #ffcc00;
+    --bg-cream: #fff9e6;
+    --max-width: 1400px;
+    /* 字体定义：英文优先 Times New Roman，中文正文宋体，标题黑体 */
+    --font-main: "Times New Roman", "SimSun", "宋体", serif;
+    --font-title: "SimHei", "黑体", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--font-main);
+    background-color: var(--bg-cream);
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. 标头 */
+header {
+    width: 100%;
+    background: linear-gradient(135deg, #c00 0%, #f00 100%);
+    color: white;
+    padding: clamp(20px, 4vh, 40px) 20px;
+    border-bottom: 5px solid var(--accent-gold);
+    text-align: center;
+}
+
+header h1 {
+    max-width: var(--max-width);
+    margin: 0 auto 10px;
+    font-family: var(--font-title);
+    font-size: clamp(22px, 5vw, 36px);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: clamp(14px, 3vw, 18px);
+    opacity: 0.9;
+}
+
+/* 2. 核心解读 */
+.top-intro {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+
+.highlight {
+    background-color: #fff2e6;
+    padding: clamp(15px, 3vw, 25px);
+    border-left: 6px solid #ff6600;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.highlight h3 {
+    color: var(--primary-red);
+    font-family: var(--font-title);
+    margin-bottom: 10px;
+    font-size: clamp(18px, 4vw, 22px);
+}
+
+/* 3. 多列瀑布流布局 */
+.masonry-wrapper {
+    flex: 1;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+    column-count: 2; 
+    column-gap: 20px;
+}
+
+.panel {
+    background: white;
+    border: 2px solid var(--primary-red);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    break-inside: avoid;
+    display: block;
+    margin-bottom: 20px;
+    height: fit-content;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0); 
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.panel-header {
+    background: var(--primary-red);
+    color: white;
+    padding: 12px;
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+/* 新闻链接块 */
+.news-link-block {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #eee;
+}
+
+.news-link-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.video-news-container {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #eee;
+}
+
+.news-title {
+    font-family: var(--font-title);
+    font-weight: bold;
+    color: var(--primary-red);
+    margin-bottom: 8px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    font-family: var(--font-main);
+    font-size: 14.5px;
+    text-indent: 2em;
+    text-align: justify;
+    margin-bottom: 8px;
+}
+
+.news-source {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    display: block;
+}
+
+.panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.video-trigger {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-trigger img {
+    display: block;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.video-trigger:hover img { opacity: 1; }
+
+.video-trigger::after {
+    content: "▶";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 40px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+/* 动态图表样式 */
+.chart-container, .dynamic-chart {
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.chart-title, .chart-header { 
+    font-family: var(--font-title);
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    font-size: 14px; 
+}
+.chart-row, .chart-item { margin-bottom: 12px; }
+.chart-label, .chart-info { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 12px; 
+    margin-bottom: 4px; 
+    font-family: var(--font-main);
+}
+.bar-bg, .chart-bar-bg { background: #eee; height: 10px; border-radius: 5px; overflow: hidden; }
+
+/* 进度条填充 */
+.bar-fill, .chart-bar-fill { 
+    height: 100%; 
+    background: linear-gradient(90deg, var(--accent-gold), var(--primary-red)); 
+    width: 0; 
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+    display: block;
+}
+
+/* 页脚 */
+footer {
+    width: 100%;
+    background: #222;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    font-family: var(--font-main);
+}
+
+.date { 
+    font-family: var(--font-main);
+    color: var(--accent-gold); 
+    font-weight: bold; 
+    display: block; 
+    margin-top: 8px; 
+}
+
+.producer-info {
+    font-family: "SimSun", "宋体", serif;
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* 视频弹窗 */
+#video-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#video-modal.active { display: flex; }
+.modal-content { width: 95%; max-width: 800px; position: relative; }
+#close-modal { position: absolute; top: -45px; right: 0; color: white; background: none; border: none; font-size: 35px; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .masonry-wrapper {
+        column-count: 1; 
+        padding: 10px;
+    }
+}
